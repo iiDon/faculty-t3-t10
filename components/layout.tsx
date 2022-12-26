@@ -17,7 +17,7 @@ export default function Layout({ children }: Props) {
       <GridItem h="95vh" bg="lightBlue" area={"nav"}>
         <Sidebar />
       </GridItem>
-      <GridItem p={4} bg="green.300" area={"main"}>
+      <GridItem p={4} bg="gray.200" area={"main"}>
         {children}
       </GridItem>
       <GridItem h="5vh" bg="blue.800" area={"footer"}>
