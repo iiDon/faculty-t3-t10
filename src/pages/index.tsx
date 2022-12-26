@@ -1,10 +1,12 @@
+import { VStack } from "@chakra-ui/react";
 import { type NextPage } from "next";
+import Search from "../../components/Home/Search";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <div>بسم الله</div>
-    </div>
+    <VStack>
+      <Search />
+    </VStack>
   );
 };
 
