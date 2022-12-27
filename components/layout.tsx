@@ -14,7 +14,7 @@ export default function Layout({ children }: Props) {
                   "footer  footer"`}
       gridTemplateColumns={[`1fr`, `20rem 1fr}`, `20rem 1fr}`]}
     >
-      <GridItem h="95vh" bg="lightBlue" area={"nav"}>
+      <GridItem zIndex={1} boxShadow="lg" h="95vh" bg="lightBlue" area={"nav"}>
         <Sidebar />
       </GridItem>
       <GridItem p={4} bg="gray.200" area={"main"}>

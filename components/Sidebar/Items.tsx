@@ -50,9 +50,12 @@ const Items = () => {
             p={2}
             bg="whiteBlue"
             borderRadius="lg"
+            _hover={{ bg: "blue.100" }}
           >
             {item.icon}
-            <Text mr={3}>{item.name}</Text>
+            <Text mr={3} fontWeight="bold">
+              {item.name}
+            </Text>
           </Flex>
         </Link>
       ))}

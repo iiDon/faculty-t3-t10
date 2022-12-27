@@ -1,17 +1,27 @@
 import { Box } from "@chakra-ui/react";
+import type { Faculty, RateValue } from "@prisma/client";
 import Select from "react-select";
 
-const Search = () => {
-  const colourOptions = [
-    { value: "ocean", label: "Ocean" },
-    { value: "blue", label: "Blue" },
-    { value: "purple", label: "Purple" },
-    { value: "red", label: "Red" },
-    { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" },
-    { value: "green", label: "Green" },
-    { value: "forest", label: "Forest" },
-  ];
+interface Props {
+  faculty:
+    | (Faculty & {
+        Rate: {
+          RateValue: RateValue[];
+        }[];
+        Department: {
+          name: string;
+        } | null;
+      })[]
+    | undefined;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Search = (Props: Props) => {
+  const facultyNames = Props.faculty?.map((faculty) => ({
+    value: faculty.id,
+    label: faculty.name,
+  }));
+
   return (
     <Box w="100%">
       <Select
@@ -20,7 +30,9 @@ const Search = () => {
         classNamePrefix="select"
         isRtl
         isSearchable
-        options={colourOptions}
+        isClearable
+        options={facultyNames}
+        onChange={(e) => Props.setSearch(e?.label || "")}
       />
     </Box>
   );
